@@ -7,6 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
+    "ci": "grunt ci",
     "test": "grunt test"
   },
   "repository": {
