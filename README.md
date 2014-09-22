@@ -4,10 +4,10 @@ JSON text sequences are nice for unambiguous JSON log files.  They are resilient
 to many forms of damage such as truncation, multiple writers incorrectly
 configured to write to the same file, corrupted JSON, etc.  An example sequence:
 
-    ␞{"d":"2014-09-22T21:58:35.270Z","value":6}LF
-    ␞{"d":"2014-09-22T21:59:15.117Z","value":12}LF
+    ␞{"d":"2014-09-22T21:58:35.270Z","value":6}␤
+    ␞{"d":"2014-09-22T21:59:15.117Z","value":12}␤
 
-Where "␞" is the ASCII "Record Separator" character (U+001E), and LF is the
+Where "␞" is the ASCII "Record Separator" character (U+001E), and "␤" is the
 ASCII "LINE FEED" character (U+000A), otherwise known as "\n".
 
 To parse the format, pipe an input source into a parser stream:
