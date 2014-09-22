@@ -21,7 +21,12 @@ module.exports = function(grunt) {
       }
     },
     codo: {
-      options: {}
+      src: ['src'],
+      options: {
+        name: "json-text-sequence",
+        title: "json-text-sequence API Documentation",
+        extras: [ "LICENSE.md" ]
+      }
     },
     coffeelint: {
       src: ['src/*.coffee'],
