@@ -40,6 +40,6 @@
     "jit-grunt": "^0.8.0"
   },
   "dependencies": {
-    "delimit-stream": "0.0.1"
+    "delimit-stream": "0.1.0"
   }
 }
