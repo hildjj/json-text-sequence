@@ -44,6 +44,8 @@ module.exports = function(grunt) {
     },
     shell: {
       istanbul: {
+        stdout: true,
+        stderr: true,
         command: 'which istanbul && istanbul cover nodeunit test'
       },
     },
@@ -79,5 +81,6 @@ module.exports = function(grunt) {
   grunt.registerTask('doc', ['clean:doc', 'codo']);
   grunt.registerTask('test', ['coffee', 'nodeunit']);
   grunt.registerTask('server', ['test', 'shell:istanbul', 'express', 'watch']);
-  grunt.registerTask('ci', ['test', 'shell:istanbul', 'coveralls']);
+  grunt.registerTask('coverage', ['coffee', 'shell:istanbul'])
+  grunt.registerTask('ci', ['coverage', 'coveralls']);
 };
