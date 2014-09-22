@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hildjj/node-json-text-sequence"
+    "url": "https://github.com/hildjj/json-text-sequence"
   },
   "keywords": [
     "json",
@@ -22,9 +22,9 @@
   "author": "Joe Hildebrand",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hildjj/node-json-text-sequence/issues"
+    "url": "https://github.com/hildjj/json-text-sequence/issues"
   },
-  "homepage": "https://github.com/hildjj/node-json-text-sequence",
+  "homepage": "https://github.com/hildjj/json-text-sequence",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-codo": "^0.2.0",
