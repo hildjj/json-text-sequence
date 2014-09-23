@@ -40,13 +40,13 @@ module.exports = function(grunt) {
       }
     },
     nodeunit: {
-      all: ['test/*.coffee']
+      all: ['test/*.js']
     },
     shell: {
       istanbul: {
         stdout: true,
         stderr: true,
-        command: 'which istanbul && istanbul cover nodeunit test/*.coffee'
+        command: 'istanbul cover nodeunit test/*.coffee'
       },
     },
     express: {
