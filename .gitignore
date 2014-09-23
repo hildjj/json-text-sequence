@@ -4,3 +4,4 @@ doc
 .DS_Store
 man
 TAGS
+npm-debug.log

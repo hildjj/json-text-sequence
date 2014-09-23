@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "ci": "grunt -v coverage",
+    "ci": "grunt ci",
     "test": "grunt test"
   },
   "repository": {
