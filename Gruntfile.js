@@ -46,7 +46,7 @@ module.exports = function(grunt) {
       istanbul: {
         stdout: true,
         stderr: true,
-        command: 'which istanbul && istanbul cover nodeunit test'
+        command: 'which istanbul && istanbul cover nodeunit test/*.coffee'
       },
     },
     express: {
