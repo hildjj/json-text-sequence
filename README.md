@@ -44,3 +44,5 @@ interesting, then write objects to the generator:
       d: new Date(),
       count: 0
     });
+
+[![Coverage Status](https://coveralls.io/repos/hildjj/json-text-sequence/badge.png?branch=master)](https://coveralls.io/r/hildjj/json-text-sequence?branch=master)
