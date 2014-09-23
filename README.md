@@ -10,6 +10,10 @@ configured to write to the same file, corrupted JSON, etc.  An example sequence:
 Where "␞" is the ASCII "Record Separator" character (U+001E), and "␤" is the
 ASCII "LINE FEED" character (U+000A), otherwise known as "\n".
 
+To install:
+
+    npm install json-text-sequence
+
 To parse the format, pipe an input source into a parser stream:
 
     var parser = require('json-text-sequence').parser;
