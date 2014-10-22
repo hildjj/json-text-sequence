@@ -63,3 +63,19 @@ jts = require '../lib/index'
       json = j
   p.end new Buffer('\x1e\n', 'utf8')
 
+@empty = (test) ->
+  success = true
+  p = new jts.parser()
+    .on 'finish', ->
+      test.ok success
+      test.done()
+    .on 'error', (e) ->
+      test.isError(e)
+      success = false
+    .on 'invalid', (d) ->
+      success = false
+    .on 'truncated', (d) ->
+      success = false
+    .on 'json', (j) ->
+      success = false
+  p.end new Buffer('\x1e\x1e\x1e', 'utf8')

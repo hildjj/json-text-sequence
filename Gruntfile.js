@@ -40,7 +40,7 @@ module.exports = function(grunt) {
       }
     },
     nodeunit: {
-      all: ['test/*.js']
+      all: ['test']
     },
     shell: {
       istanbul: {

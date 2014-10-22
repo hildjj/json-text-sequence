@@ -1,3 +1,4 @@
+assert = require 'assert'
 stream = require 'stream'
 DelimitStream = require 'delimit-stream'
 
@@ -48,6 +49,10 @@ class JSONSequenceParser extends stream.Transform
         `// istanbul ignore next`
         that.emit 'error', e
       .on 'data', (d) ->
+        # NOTE: delimit-stream will deal with repeated delimiters.
+        # d.length will always be > 0
+        assert.ok(d.length > 0)
+
         # if the entry doesn't end with \n, it got truncated
         if d[d.length - 1] != 0x0a
           that.emit 'truncated', d
