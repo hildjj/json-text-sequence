@@ -26,14 +26,11 @@ jts = require '../lib/index'
 @error = (test) ->
   a = {}
   a.foo = a
-  error = null
   g = new jts.generator()
   g.on 'data', (d) ->
     test.ok false, 'not expecting data'
   g.on 'error', (e) ->
-    error = e
-  g.on 'finish', ->
-    test.ok error
+    test.ok e?
     test.done()
 
   g.end(a)
