@@ -1,4 +1,4 @@
-Parse and generate JSON text sequences as defined in [draft-ietf-json-text-sequence](http://tools.ietf.org/html/draft-ietf-json-text-sequence).
+Parse and generate JSON text sequences as defined in [RFC 7464](https://tools.ietf.org/html/rfc7464).
 
 JSON text sequences are nice for unambiguous JSON log files.  They are resilient
 to many forms of damage such as truncation, multiple writers incorrectly
