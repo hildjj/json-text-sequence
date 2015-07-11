@@ -1,6 +1,6 @@
 {
   "name": "json-text-sequence",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Parse and generate RS-delimited JSON sequences according to draft-ietf-json-text-sequence",
   "main": "./lib/index.js",
   "directories": {
