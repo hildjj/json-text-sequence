@@ -9,7 +9,7 @@ jts = require '../lib/index'
   json = []
 
   p = new jts.parser()
-    .on 'finish', ->
+    .on 'end', ->
       test.deepEqual json[0], true
       test.deepEqual json[1], 12
       test.deepEqual json[2], "foo"
@@ -20,17 +20,17 @@ jts = require '../lib/index'
       test.ok false, 'truncated'
     .on 'invalid', (d) ->
       test.ok false, 'invalid'
-    .on 'json', (j) ->
+    .on 'data', (j) ->
       json.push j
-  p.write new Buffer('\x1etrue\n', 'utf8')
-  p.write new Buffer('\x1e12\n', 'utf8')
-  p.end new Buffer('\x1e"foo"\n', 'utf8')
+  p.write new Buffer(jts.RS + 'true\n', 'utf8')
+  p.write new Buffer(jts.RS + '12\n', 'utf8')
+  p.end new Buffer(jts.RS + '"foo"\n', 'utf8')
 
 @truncate = (test) ->
   json = null
   truncated = 0
   p = new jts.parser()
-    .on 'finish', ->
+    .on 'end', ->
       test.ok !json
       test.deepEqual truncated, 2
       test.done()
@@ -38,17 +38,17 @@ jts = require '../lib/index'
       test.ifError e
     .on 'truncated', (d) ->
       truncated++
-    .on 'json', (j) ->
+    .on 'data', (j) ->
       json = j
-  p.write new Buffer('\x1e"foo', 'utf8')
-  p.end new Buffer('\x1e12', 'utf8')
+  p.write new Buffer(jts.RS + '"foo', 'utf8')
+  p.end new Buffer(jts.RS + '12', 'utf8')
 
 @invalid = (test) ->
   json = null
   truncated = false
   invalid = false
   p = new jts.parser()
-    .on 'finish', ->
+    .on 'end', ->
       test.ok !json
       test.ok !truncated
       test.ok invalid
@@ -59,14 +59,14 @@ jts = require '../lib/index'
       invalid = true
     .on 'truncated', (d) ->
       truncated = true
-    .on 'json', (j) ->
+    .on 'data', (j) ->
       json = j
-  p.end new Buffer('\x1e\n', 'utf8')
+  p.end new Buffer(jts.RS + '\n', 'utf8')
 
 @empty = (test) ->
   success = true
   p = new jts.parser()
-    .on 'finish', ->
+    .on 'end', ->
       test.ok success
       test.done()
     .on 'error', (e) ->
@@ -76,6 +76,6 @@ jts = require '../lib/index'
       success = false
     .on 'truncated', (d) ->
       success = false
-    .on 'json', (j) ->
+    .on 'data', (j) ->
       success = false
-  p.end new Buffer('\x1e\x1e\x1e', 'utf8')
+  p.end new Buffer(jts.RS + jts.RS + jts.RS, 'utf8')

@@ -2,17 +2,19 @@ assert = require 'assert'
 stream = require 'stream'
 DelimitStream = require 'delimit-stream'
 
+RS = @RS = '\x1e'
+
 # Parse a JSON text sequence stream as defined in
 # {http://tools.ietf.org/html/draft-ietf-json-text-sequence
 #  draft-ietf-json-text-sequence}.
 # If you read() from this stream, each read() will return a single valid object
-# from the stream.  However, streaming modeis much more likely to be what you
+# from the stream.  However, streaming mode is much more likely to be what you
 # want:
 #
 # Generates the following events in addition to those emitted by a normal
 # Transform stream:
 #
-# @event json(object) found a valid JSON item in the stream
+# @event data(object) found a valid JSON item in the stream
 #   @param object [any] the value
 # @event truncated(Buffer) a JSON-text got truncated.  The truncated Buffer is
 #   included in case you can do something with it.  This is a recoverable error.
@@ -41,9 +43,7 @@ class JSONSequenceParser extends stream.Transform
     super()
     @_readableState.objectMode = true
     that = @
-    @_stream = new DelimitStream('\x1e')
-      .on 'readable', ->
-        that.emit 'readable'
+    @_stream = new DelimitStream(RS)
       .on 'error', (e) ->
         # I can't fingure out how to make 'error' happen.  Maybe it can't?
         `// istanbul ignore next`
@@ -59,17 +59,16 @@ class JSONSequenceParser extends stream.Transform
         else
           try
             j = JSON.parse d
-            that.emit 'json', j
             that.push j
           catch error
             that.emit 'invalid', d
 
   # @nodoc
   _transform: (chunk, encoding, cb) ->
-    @_stream.write(chunk, encoding, cb)
+    @_stream._transform(chunk, encoding, cb)
 
   # @nodoc
-  _flush: (cb)->
+  _flush: (cb) ->
     @_stream._flush(cb)
 exports.parser = JSONSequenceParser
 
@@ -99,6 +98,6 @@ class JSONSequenceGenerator extends stream.Transform
     catch error
       return cb(error)
 
-    @push "\x1e#{s}\n", 'utf8'
+    @push "#{RS}#{s}\n", 'utf8'
     cb()
 exports.generator = JSONSequenceGenerator

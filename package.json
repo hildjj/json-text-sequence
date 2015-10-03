@@ -27,8 +27,8 @@
   },
   "homepage": "https://github.com/hildjj/json-text-sequence",
   "devDependencies": {
-    "coffee-script": "^1.9",
-    "coffeelint": "^1.10",
+    "coffee-script": "^1.10",
+    "coffeelint": "^1.12",
     "grunt": "^0.4",
     "grunt-codo": "^0.2",
     "grunt-coffeelint": "0.0.13",

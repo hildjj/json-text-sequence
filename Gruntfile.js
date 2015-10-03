@@ -46,7 +46,7 @@ module.exports = function(grunt) {
       istanbul: {
         stdout: true,
         stderr: true,
-        command: 'istanbul cover nodeunit test/*.coffee'
+        command: './node_modules/.bin/istanbul cover ./node_modules/.bin/nodeunit test/*.coffee'
       },
     },
     express: {
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
     watch: {
       all: {
         files: ['src/*.coffee', 'test/*.coffee'],
-        tasks: ['test', 'shell:istanbul'],
+        tasks: ['coverage'],
         options: {
           livereload: true
         }
@@ -80,7 +80,7 @@ module.exports = function(grunt) {
   grunt.registerTask('prepublish', ['clean', 'coffee', 'codo']);
   grunt.registerTask('doc', ['clean:doc', 'codo']);
   grunt.registerTask('test', ['coffee', 'nodeunit']);
-  grunt.registerTask('server', ['test', 'shell:istanbul', 'express', 'watch']);
+  grunt.registerTask('server', ['coverage', 'express', 'watch']);
   grunt.registerTask('coverage', ['coffee', 'shell:istanbul'])
   grunt.registerTask('ci', ['coverage', 'coveralls']);
 };

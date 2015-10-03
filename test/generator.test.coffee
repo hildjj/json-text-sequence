@@ -18,10 +18,9 @@ jts = require '../lib/index'
     test.done()
 
   g.write 12
-  g.write
+  g.end
     foo: 1
     bar: "two"
-  g.end()
 
 @error = (test) ->
   a = {}
