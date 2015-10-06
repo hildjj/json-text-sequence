@@ -49,4 +49,5 @@ interesting, then write objects to the generator:
       count: 0
     });
 
+[![Build Status](https://travis-ci.org/hildjj/json-text-sequence.svg?branch=master)](https://travis-ci.org/hildjj/json-text-sequence)
 [![Coverage Status](https://coveralls.io/repos/hildjj/json-text-sequence/badge.png?branch=master)](https://coveralls.io/r/hildjj/json-text-sequence?branch=master)
