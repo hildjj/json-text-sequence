@@ -7,8 +7,19 @@
     "lib": "lib"
   },
   "scripts": {
-    "ci": "grunt ci",
-    "test": "grunt test"
+    "clean": "rm -rf coverage lib doc man",
+    "lint": "coffeelint src test",
+    "coffee": "coffee -cm -o lib/ src",
+    "coverage": "istanbul cover nodeunit test/*.coffee",
+    "precoverage": "npm run coffee -s",
+    "test": "nodeunit test/*.coffee",
+    "pretest": "npm run coffee -s",
+    "prepublish": "npm run coffee -s",
+    "watch": "watch 'npm run coverage' src/",
+    "release": "npm version patch && git push --follow-tags && npm publish",
+    "ci": "npm run coverage  -s && cat ./coverage/lcov.info | coveralls",
+    "live": "live-server --port=4001 --ignorePattern='(js|css|png)$' coverage/lcov-report",
+    "dev": "npm-run-all -p --silent watch live"
   },
   "repository": {
     "type": "git",
@@ -27,23 +38,15 @@
   },
   "homepage": "https://github.com/hildjj/json-text-sequence",
   "devDependencies": {
-    "coffee-script": "^1.10",
-    "coffeelint": "^1.12",
-    "grunt": "^0.4",
-    "grunt-cli": "^0.1",
-    "grunt-codo": "^0.2",
-    "grunt-coffeelint": "0.0.13",
-    "grunt-contrib-clean": "^0.6",
-    "grunt-contrib-coffee": "^0.13",
-    "grunt-contrib-nodeunit": "^0.4",
-    "grunt-contrib-watch": "^0.6",
-    "grunt-coveralls": "^1.0",
-    "grunt-express": "^1.4",
-    "grunt-release": "^0.13",
-    "grunt-shell": "^1.1",
-    "istanbul": "^0.4",
-    "jit-grunt": "^0.9",
-    "nodeunit": "^0.9"
+    "coffee-script": "latest",
+    "coffeelint": "latest",
+    "coveralls": "latest",
+    "istanbul": "latest",
+    "live-server": "latest",
+    "nodeunit": "latest",
+    "npm-run-all": "latest",
+    "source-map-support": "latest",
+    "watch": "latest"
   },
   "dependencies": {
     "delimit-stream": "0.1.0"

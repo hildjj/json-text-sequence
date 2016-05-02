@@ -1,3 +1,7 @@
+try
+  require('source-map-support').install()
+catch
+
 assert = require 'assert'
 stream = require 'stream'
 DelimitStream = require 'delimit-stream'
