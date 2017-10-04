@@ -20,7 +20,7 @@ To parse the format, pipe an input source into a parser stream:
     var fs = require('fs');
 
     var p = new parser()
-      .on('json', function(obj) {
+      .on('data', function(obj) {
         console.log('JSON:', obj);
       })
       .on('truncated', function(buf) {
