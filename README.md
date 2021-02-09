@@ -16,20 +16,20 @@ To install:
 
 To parse the format, pipe an input source into a parser stream:
 
-    var parser = require('json-text-sequence').parser;
-    var fs = require('fs');
+    const parser = require('json-text-sequence').parser;
+    const fs = require('fs');
 
-    var p = new parser()
-      .on('json', function(obj) {
+    const p = new parser()
+      .on('json', obj => {
         console.log('JSON:', obj);
       })
-      .on('truncated', function(buf) {
+      .on('truncated', buf => {
         console.log('Truncated:', buf);
       })
-      .on('invalid', function(buf) {
+      .on('invalid', buf => {
         console.log('Invalid:', buf);
       })
-      .on('finish', function() {
+      .on('finish', () => {
         console.log('DONE');
       });
 
@@ -38,10 +38,10 @@ To parse the format, pipe an input source into a parser stream:
 To generate the format, create a generator, pipe its output somewhere
 interesting, then write objects to the generator:
 
-    var generator = require('json-text-sequence').generator;
-    var fs = require('fs');
+    const generator = require('json-text-sequence').generator;
+    const fs = require('fs');
 
-    var g = new generator();
+    const g = new generator();
     g.pipe(fs.createWriteStream('example.log'));
 
     g.write({
