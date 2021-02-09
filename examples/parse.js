@@ -1,18 +1,20 @@
-var parser = require('..').parser;
-var fs = require('fs');
+'use strict'
 
-var p = new parser()
-  .on('json', function(obj) {
-    console.log('JSON:', obj);
-  })
-  .on('truncated', function(buf) {
-    console.log('Truncated:', buf);
-  })
-  .on('invalid', function(buf) {
-    console.log('Invalid:', buf);
-  })
-  .on('finish', function() {
-    console.log('DONE');
-  });
+const parser = require('..').parser
+const fs = require('fs')
 
-fs.createReadStream('example.log').pipe(p);
+const p = new parser()
+  .on('json', (obj) => {
+    console.log('JSON:', obj)
+  })
+  .on('truncated', (buf) => {
+    console.log('Truncated:', buf)
+  })
+  .on('invalid', (buf) => {
+    console.log('Invalid:', buf)
+  })
+  .on('finish', () => {
+    console.log('DONE')
+  })
+
+fs.createReadStream('example.log').pipe(p)
