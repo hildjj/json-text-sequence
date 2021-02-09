@@ -20,7 +20,7 @@ To parse the format, pipe an input source into a parser stream:
     const fs = require('fs');
 
     const p = new parser()
-      .on('json', obj => {
+      .on('data', obj => {
         console.log('JSON:', obj);
       })
       .on('truncated', buf => {
@@ -49,5 +49,6 @@ interesting, then write objects to the generator:
       count: 0
     });
 
-[![Build Status](https://travis-ci.org/hildjj/json-text-sequence.svg?branch=master)](https://travis-ci.org/hildjj/json-text-sequence)
+[![Tests](https://github.com/hildjj/json-text-sequence/workflows/Tests/badge.svg)](https://github.com/hildjj/json-text-sequence/actions?query=workflow%3ATests)
+
 [![Coverage Status](https://coveralls.io/repos/hildjj/json-text-sequence/badge.png?branch=master)](https://coveralls.io/r/hildjj/json-text-sequence?branch=master)
