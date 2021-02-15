@@ -4,13 +4,13 @@ const jts = require('../lib/index')
 const test = require('ava')
 
 test('create', t => {
-  const g = new jts.generator()
+  const g = new jts.Generator()
   t.truthy(g)
 })
 
 test.cb('generate', t => {
   const data = []
-  const g = new jts.generator()
+  const g = new jts.Generator()
   g.on('data', d => data.push(d))
   g.on('error', e => t.fail(e.message))
   g.on('finish', () => {
@@ -29,9 +29,9 @@ test.cb('generate', t => {
 test.cb('error', t => {
   const a = {}
   a.foo = a
-  const g = new jts.generator()
+  const g = new jts.Generator()
   g.on('data', d => test.ok(false, 'not expecting data'))
-  g.on('error', (e) => {
+  g.on('error', e => {
     t.not(e, null)
     t.end()
   })

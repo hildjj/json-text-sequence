@@ -1,12 +1,12 @@
 'use strict'
 
 const fs = require('fs')
-const generator = require('..').generator
+const {Generator} = require('..')
 
-const g = new generator()
+const g = new Generator()
 g.pipe(fs.createWriteStream('example.log'))
 
-for (let i=0; i<10; i++) {
+for (let i = 0; i < 10; i++) {
   g.write({
     d: new Date(),
     count: i

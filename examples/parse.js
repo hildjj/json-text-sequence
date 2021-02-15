@@ -1,16 +1,16 @@
 'use strict'
 
-const parser = require('..').parser
+const {Parser} = require('..')
 const fs = require('fs')
 
-const p = new parser()
-  .on('json', (obj) => {
+const p = new Parser()
+  .on('json', obj => {
     console.log('JSON:', obj)
   })
-  .on('truncated', (buf) => {
+  .on('truncated', buf => {
     console.log('Truncated:', buf)
   })
-  .on('invalid', (buf) => {
+  .on('invalid', buf => {
     console.log('Invalid:', buf)
   })
   .on('finish', () => {
