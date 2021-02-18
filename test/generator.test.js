@@ -30,7 +30,7 @@ test.cb('error', t => {
   const a = {}
   a.foo = a
   const g = new jts.Generator()
-  g.on('data', d => test.ok(false, 'not expecting data'))
+  g.on('data', d => t.fail('not expecting data'))
   g.on('error', e => {
     t.not(e, null)
     t.end()

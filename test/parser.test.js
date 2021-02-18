@@ -12,9 +12,9 @@ test.cb('parse', t => {
 
   const p = new jts.Parser()
     .on('end', () => {
-      t.deepEqual(json[0], true)
-      t.deepEqual(json[1], 12)
-      t.deepEqual(json[2], 'foo')
+      t.is(json[0], true)
+      t.is(json[1], 12)
+      t.is(json[2], 'foo')
       t.end()
     })
     .on('error', e => t.fail(e.message))

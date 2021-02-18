@@ -30,12 +30,13 @@
   },
   "homepage": "https://github.com/hildjj/json-text-sequence",
   "dependencies": {
-    "delimit-stream": "0.1.0"
+    "@sovpro/delimited-stream": "^1.1.0"
   },
   "devDependencies": {
-    "@cto.af/eslint-config": "^0.0.2",
+    "@cto.af/eslint-config": "^0.0.3",
     "ava": "^3.15.0",
     "eslint": "^7.20.0",
+    "eslint-plugin-ava": "^11.0.0",
     "eslint-plugin-node": "^11.1.0",
     "nyc": "^15.1.0"
   },
