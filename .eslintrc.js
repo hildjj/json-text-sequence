@@ -1,5 +1,6 @@
 'use strict'
 
 module.exports = {
-  extends: '@cto.af'
+  root: true,
+  extends: '@cto.af',
 }

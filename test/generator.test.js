@@ -2,6 +2,7 @@
 
 const jts = require('../lib/index')
 const test = require('ava')
+const {Buffer} = require('buffer')
 
 test('create', t => {
   const g = new jts.Generator()
@@ -22,7 +23,7 @@ test.cb('generate', t => {
   g.write(12)
   return g.end({
     foo: 1,
-    bar: 'two'
+    bar: 'two',
   })
 })
 
