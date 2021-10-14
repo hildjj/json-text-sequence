@@ -1,6 +1,7 @@
 'use strict'
 const jts = require('../lib/index')
 const test = require('ava')
+const {Buffer} = require('buffer')
 
 test('create', t => {
   const p = new jts.Parser()
@@ -22,9 +23,9 @@ test.cb('parse', t => {
     .on('invalid', d => t.fail('invalid'))
     .on('data', j => json.push(j))
 
-  p.write(Buffer.from(jts.RS + 'true\n', 'utf8'))
-  p.write(Buffer.from(jts.RS + '12\n', 'utf8'))
-  return p.end(Buffer.from(jts.RS + '"foo"\n', 'utf8'))
+  p.write(Buffer.from(`${jts.RS}true\n`, 'utf8'))
+  p.write(Buffer.from(`${jts.RS}12\n`, 'utf8'))
+  return p.end(Buffer.from(`${jts.RS}"foo"\n`, 'utf8'))
 })
 
 test.cb('truncate', t => {
@@ -39,8 +40,8 @@ test.cb('truncate', t => {
     .on('error', e => t.fail(e.message))
     .on('truncated', d => truncated++)
     .on('data', j => (json = j))
-  p.write(Buffer.from(jts.RS + '"foo', 'utf8'))
-  return p.end(Buffer.from(jts.RS + '12', 'utf8'))
+  p.write(Buffer.from(`${jts.RS}"foo`, 'utf8'))
+  return p.end(Buffer.from(`${jts.RS}12`, 'utf8'))
 })
 
 test.cb('invalid', t => {
@@ -58,7 +59,7 @@ test.cb('invalid', t => {
     .on('invalid', d => (invalid = true))
     .on('truncated', d => (truncated = true))
     .on('data', j => (json = j))
-  return p.end(Buffer.from(jts.RS + '\n', 'utf8'))
+  return p.end(Buffer.from(`${jts.RS}\n`, 'utf8'))
 })
 
 test.cb('empty', t => {

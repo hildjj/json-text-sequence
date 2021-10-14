@@ -6,12 +6,15 @@
   "directories": {
     "lib": "lib"
   },
+  "types": "types/index.d.ts",
   "scripts": {
-    "clean": "rm -rf coverage doc man",
+    "clean": "rm -rf coverage",
     "coverage": "nyc -r lcov npm test",
     "test": "ava test/*.js",
     "release": "npm version patch && git push --follow-tags && npm publish",
-    "lint": "eslint lib/*.js test/*.js examples/*.js"
+    "lint": "eslint . --ext js",
+    "types": "tsc",
+    "check": "npm run lint && npm run types && npm run coverage && npm pack --dry-run"
   },
   "repository": {
     "type": "git",
@@ -33,14 +36,17 @@
     "@sovpro/delimited-stream": "^1.1.0"
   },
   "devDependencies": {
-    "@cto.af/eslint-config": "^0.0.5",
+    "@cto.af/eslint-config": "^0.0.10",
+    "@types/node": "^16.11.0",
     "ava": "^3.15.0",
-    "eslint": "^7.29.0",
-    "eslint-plugin-ava": "^12.0.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-ava": "^13.0.0",
+    "eslint-plugin-jsdoc": "^36.1.1",
     "eslint-plugin-node": "^11.1.0",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "typescript": "^4.4.4"
   },
   "engines": {
-    "node": ">=10.18.0"
+    "node": ">=12.20.0"
   }
 }

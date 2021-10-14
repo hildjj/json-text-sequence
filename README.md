@@ -50,4 +50,4 @@ interesting, then write objects to the generator:
     });
 
 [![Tests](https://github.com/hildjj/json-text-sequence/workflows/Tests/badge.svg)](https://github.com/hildjj/json-text-sequence/actions?query=workflow%3ATests)
-[![Coverage Status](https://coveralls.io/repos/hildjj/json-text-sequence/badge.png?branch=master)](https://coveralls.io/r/hildjj/json-text-sequence?branch=master)
+[![Coverage Status](https://coveralls.io/repos/hildjj/json-text-sequence/badge.png?branch=main)](https://coveralls.io/r/hildjj/json-text-sequence?branch=main)
