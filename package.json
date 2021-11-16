@@ -36,12 +36,12 @@
     "@sovpro/delimited-stream": "^1.1.0"
   },
   "devDependencies": {
-    "@cto.af/eslint-config": "^0.0.10",
-    "@types/node": "^16.11.0",
+    "@cto.af/eslint-config": "^0.0.12",
+    "@types/node": "^16.11.7",
     "ava": "^3.15.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-ava": "^13.0.0",
-    "eslint-plugin-jsdoc": "^36.1.1",
+    "eslint-plugin-ava": "^13.1.0",
+    "eslint-plugin-jsdoc": "^37.0.3",
     "eslint-plugin-node": "^11.1.0",
     "nyc": "^15.1.0",
     "typescript": "^4.4.4"
