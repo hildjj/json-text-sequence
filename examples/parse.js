@@ -1,4 +1,5 @@
 'use strict'
+/* eslint-disable no-console */
 
 const {Parser} = require('..')
 const fs = require('fs')
