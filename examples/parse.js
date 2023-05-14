@@ -1,8 +1,7 @@
-'use strict'
 /* eslint-disable no-console */
 
-const {Parser} = require('..')
-const fs = require('fs')
+import {Parser} from '../lib/index.js'
+import fs from 'fs'
 
 const p = new Parser()
   .on('json', obj => {

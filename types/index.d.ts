@@ -1,9 +1,12 @@
 export const RS: "\u001E";
-declare class JSONSequenceParser extends stream.Transform {
+export class JSONSequenceParser extends Transform {
     _stream: DelimitedStream;
+    _transform(chunk: any, encoding: any, cb: any): void;
+    _final(cb: any): void;
 }
-declare class JSONSequenceGenerator extends stream.Transform {
+export class JSONSequenceGenerator extends Transform {
+    _transform(chunk: any, encoding: any, cb: any): any;
 }
-import stream = require("stream");
-import { DelimitedStream } from "@sovpro/delimited-stream";
-export { JSONSequenceParser as parser, JSONSequenceParser as Parser, JSONSequenceGenerator as generator, JSONSequenceGenerator as Generator };
+import { Transform } from 'stream';
+import { DelimitedStream } from '@sovpro/delimited-stream';
+export { JSONSequenceParser as Parser, JSONSequenceGenerator as Generator };

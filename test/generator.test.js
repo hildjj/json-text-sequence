@@ -1,8 +1,6 @@
-'use strict'
-
-const jts = require('../lib/index')
-const test = require('ava')
-const {Buffer} = require('buffer')
+import * as jts from '../lib/index.js'
+import {Buffer} from 'buffer'
+import test from 'ava'
 
 test('create', t => {
   const g = new jts.Generator()

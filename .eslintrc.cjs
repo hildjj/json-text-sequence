@@ -2,5 +2,5 @@
 
 module.exports = {
   root: true,
-  extends: '@cto.af',
+  extends: '@cto.af/eslint-config/modules',
 }
