@@ -24,8 +24,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install
         run: npm install
+      - name: Lint
+        run: npm run lint
       - name: Test ${{ matrix.node-version }}
-        run: npm run coverage
+        run: npm run test
       - name: Coveralls Parallel
         uses: coverallsapp/github-action@master
         with:
@@ -36,8 +38,6 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Lint
-        run: npm run lint
       - name: Coveralls Finished
         uses: coverallsapp/github-action@master
         with:

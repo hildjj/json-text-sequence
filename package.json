@@ -7,8 +7,7 @@
   "types": "types/index.d.ts",
   "scripts": {
     "clean": "rm -rf coverage",
-    "coverage": "c8 ava",
-    "test": "ava",
+    "test": "c8 ava",
     "lint": "eslint . --ext js",
     "types": "tsc",
     "check": "npm run lint && npm run types && npm run coverage && npm pack --dry-run"
