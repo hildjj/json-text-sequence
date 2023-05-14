@@ -13,3 +13,5 @@ examples/
 test/
 tsconfig.json
 .ncurc.json
+.c8rc
+.eslintrc.cjs

@@ -1,7 +1,5 @@
-'use strict'
-
-const fs = require('fs')
-const {Generator} = require('..')
+import {Generator} from '../lib/index.js'
+import fs from 'fs'
 
 const g = new Generator()
 g.pipe(fs.createWriteStream('example.log'))
