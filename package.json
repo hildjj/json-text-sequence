@@ -32,14 +32,14 @@
     "@sovpro/delimited-stream": "^1.1.0"
   },
   "devDependencies": {
-    "@cto.af/eslint-config": "^1.1.2",
-    "@types/node": "^20.1.4",
-    "ava": "^5.2.0",
-    "c8": "7.13.0",
+    "@cto.af/eslint-config": "^2.0.0",
+    "@types/node": "^20.3.1",
+    "ava": "^5.3.1",
+    "c8": "8.0.0",
     "eslint": "^8.40.0",
     "eslint-plugin-ava": "^14.0.0",
-    "eslint-plugin-node": "^11.1.0",
-    "typescript": "^5.0.4"
+    "eslint-plugin-n": "16.0.1",
+    "typescript": "^5.1.3"
   },
   "engines": {
     "node": ">=16"
