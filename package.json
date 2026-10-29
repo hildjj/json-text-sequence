@@ -1,11 +1,14 @@
 {
   "name": "json-text-sequence",
-  "version": "4.0.3",
+  "version": "5.0.0",
   "description": "Parse and generate RS-delimited JSON sequences according to draft-ietf-json-text-sequence",
   "main": "./lib/index.js",
   "type": "module",
   "types": "types/index.d.ts",
-  "files": ["lib", "types"],
+  "files": [
+    "lib",
+    "types"
+  ],
   "scripts": {
     "clean": "rm -rf coverage types doc",
     "test": "c8 ava",
