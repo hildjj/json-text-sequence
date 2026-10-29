@@ -7,10 +7,10 @@
     "checkJs": true,
     "declaration": true,
     "emitDeclarationOnly": true,
-    "moduleResolution": "node",
-    "module": "es2020",
+    "module": "esnext",
     // "noImplicitAny": true,
     "outDir": "types",
-    "target": "ES2020"
+    "rootDir": "./lib",
+    "target": "ES2024"
   }
 }
